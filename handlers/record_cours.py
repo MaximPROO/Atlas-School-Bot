@@ -71,6 +71,15 @@ async def cmd_results(message: Message, state: FSMContext):
                              f"Tanlagan kun {data['day']}\n"
                              f"Tanlagan vaqt {data['time']}\n"
                              f"7 Ish kuni ichida sizga aloqaga chiqamiz! Raxmat")
+        await record_user(
+            name=message.from_user.full_name,
+            tg_id=message.from_user.id,
+            phone=data['phone'],
+            choised_course=data['choised_course'],
+            choised_day=data['day'],
+            choised_time=data['time']
+        )
+        print(f"|INFO| User {message.from_user.full_name} added in cours {data['choised_course']}")
         await state.finish()
     else:
         await message.answer("Siz kiritgan raqam xato\nQaytadan urinib ko'ring\n"

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Atlas Admin</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  </head>
+  <body>
+
+  
+  <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Enroled Cours</h4>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th> ID </th>
+                            <th> Full Name </th>
+                            <th> TG ID </th>
+                            <th> PHONE </th>
+                            <th> KURSI  </th>
+                            <th> DAYS </th>
+                            <th> VAQT </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for user in users %}
+                          <tr>
+                            <td> {{ user.id }} </td>
+                            <td> {{ user.name }} </td>
+                            <td> {{ user.tg_id }}</td>
+                            <td> {{ user.phone }}</td>
+                            <td> {{ user.choised_course }} </td>
+                            <td> {{ user.choised_day }} </td>
+                            <td> {{ user.choised_time }} </td>
+
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+  </body>
+</html>

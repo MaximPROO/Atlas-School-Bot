@@ -28,6 +28,7 @@ class RecordedUser(Base):
     id = Column(Integer, Sequence("recorded_user_id_seq"), primary_key=True)
     name = Column(String)
     tg_id = Column(BIGINT)
+    phone = Column(String)
     choised_course = Column(String)
     choised_day = Column(String)
     choised_time = Column(String)
@@ -39,8 +40,8 @@ async def add_user(full_name, username, tg_id):
     session.commit()
 
 
-async def record_user(name, tg_id, choised_course, choised_day, choised_time):
-    user = RecordedUser(name=name, tg_id=tg_id, choised_course=choised_course, choised_day=choised_day,
+async def record_user(name, tg_id, phone, choised_course, choised_day, choised_time):
+    user = RecordedUser(name=name, tg_id=tg_id, phone=phone, choised_course=choised_course, choised_day=choised_day,
                         choised_time=choised_time)
     session.add(user)
     session.commit()
